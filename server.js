@@ -6,7 +6,6 @@ const cookie = {
 	name: 'name',
 	value: 'value',
 	domain: 'localhost',
-	path: '/',
 };
 
 async function visit (url) {
@@ -14,7 +13,7 @@ async function visit (url) {
 		args: ['--no-sandbox']
 	})
 	var page = await browser.newPage()
-	page.setCookie(cookie)
+	await page.setCookie(cookie)
 	await page.goto(url)
 	await page.close()
 	await browser.close()
